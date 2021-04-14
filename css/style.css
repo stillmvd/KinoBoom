@@ -40,13 +40,13 @@
 
 a{
     text-decoration: none;
-    color: white;
+    color: black;
     display: flex;
     align-items: center;
 }
 
 .container{
-    width: 94%;
+    width: 1790px;
     margin: auto;
 }
 
@@ -83,14 +83,21 @@ header{
     font-size: 20px;
     font-family: Yandex-Sans;
     font-weight: 100;
-    letter-spacing: 1.4px;
+    letter-spacing: 1px;
+    color: white;
 }
 
 /* ---------- тело  ---------- */
 
+.leftPart{
+    border: solid #AD3B3B;
+    border-width: 0px 1.9px 0px 0px;
+    width: 210px;
+}
+
 .fullscreen{
-    display: flex;
-    justify-content: flex-end;
+    position: absolute;
+    right: 0;
     padding: 20px 20px;
 }
 
@@ -99,7 +106,22 @@ header{
     height: 30px;
     background-color: transparent;
     border: none;
-    background-image: url(/img/fullscreen.svg);
+    background-image: url(img/fullscreen.svg);
+}
+
+.categories{
+    line-height: 30px;
+    width: 120px;
+    padding-right: 100px;
+    padding-top: 40px;
+}
+
+.categories a{
+    font-size: 18px;
+    font-family: Yandex-Sans, sans-serif;
+    font-weight: 300;
+    color: #3E4347;
+    transition: .1s ease-in-out;
 }
 
 /* ----------  события мыши  ---------- */
@@ -114,6 +136,10 @@ header{
 
 #fullscreen:hover{
     transform: scale(1.05) perspective(1px);
+}
+
+.categories a:hover{
+    color: #AD3B3B;
 }
 
 /* ----------  псевдоэлементы  ---------- */
