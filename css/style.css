@@ -4,47 +4,45 @@
 }
 
 @font-face {
-    font-family: Gilroy-Thin;
-    src: url(/fonts/gilroy-thin.ttf);
+    font-family: Yandex-Sans;
+    src: url(/fonts/YandexSansText-Thin.ttf) format('truetype');
+    font-weight: 100;
+    font-style: normal;
 }
 
 @font-face {
-    font-family: Gilroy-Ultralight;
-    src: url(/fonts/gilroy-ultralight.ttf);
+    font-family: Yandex-Sans;
+    src: url(fonts/YandexSansText-Light.ttf) format('truetype');
+    font-weight: 300;
+    font-style: normal;
 }
 
 @font-face {
-    font-family: Gilroy;
-    src: url(/fonts/gilroy-regular.ttf);
+    font-family: Yandex-Sans;
+    src: url(fonts/YandexSansText-Regular.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {
-    font-family: Gilroy-Medium;
-    src: url(/fonts/gilroy-medium.ttf);
+    font-family: Yandex-Sans;
+    src: url(fonts/YandexSansText-Medium.ttf) format('truetype');
+    font-weight: 500;
+    font-style: normal;
 }
 
 @font-face {
-    font-family: Gilroy-Semibold;
-    src: url(/fonts/gilroy-semibold.ttf);
-}
-
-@font-face {
-    font-family: Gilroy-Bold;
-    src: url(/fonts/gilroy-bold.ttf);
-}
-
-@font-face {
-    font-family: Gilroy-Heavy;
-    src: url(/fonts/gilroy-heavy.ttf);
-}
-
-::selection{
-    background-color: rgb(255, 171, 157);
+    font-family: Yandex-Sans;
+    src: url(fonts/YandexSansText-Bold.ttf) format('truetype');
+    font-weight: bold;
+    font-style: normal;
 }
 
 a{
     text-decoration: none;
     color: white;
+    display: flex;
+    align-items: center;
 }
 
 .container{
@@ -75,11 +73,17 @@ header{
     height: 30px;
     border: none;
     transition: .2s;
+    font-family: Yandex-Sans, sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: #3E4347;
 }
 
 .innerHeader a{
     font-size: 20px;
-    font-family: Gilroy;   
+    font-family: Yandex-Sans;
+    font-weight: 100;
+    letter-spacing: 1.4px;
 }
 
 /* ---------- тело  ---------- */
@@ -106,4 +110,21 @@ header{
 
 #fullscreen:focus{
     outline: none;
+}
+
+#fullscreen:hover{
+    transform: scale(1.05) perspective(1px);
+}
+
+/* ----------  псевдоэлементы  ---------- */
+
+::selection{
+    background-color: rgb(255, 171, 157);
+}
+
+.searchbar::placeholder{
+    padding-left: 2px;
+    font-family: Yandex-Sans, sans-serif;
+    font-weight: 300;
+    font-size: 14px;
 }
