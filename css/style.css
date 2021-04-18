@@ -57,9 +57,43 @@ header{
 .innerHeader{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
     padding: 10px 0px;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+}
+
+.logoSpace{
+    width: 270px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#logo{
+    transition: .1s ease-in-out;
+    position: relative;
+}
+
+.mainPage{
+    width: 20px;
+    height: 20px;
+    filter: invert();
+    position: absolute;
+    top: 27px;
+    left: 12px;
+    z-index: -1;
+    transition: .1s ease-in-out;
+}
+
+.navSpace{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0px 90px;
 }
 
 .searchbar{
@@ -75,19 +109,30 @@ header{
     transition: .2s;
     font-family: Yandex-Sans, sans-serif;
     font-weight: 300;
-    font-size: 16px;
+    font-size: 14px;
     color: #3E4347;
 }
 
 .innerHeader a{
     font-size: 20px;
-    font-family: Yandex-Sans;
+    font-family: Yandex-Sans, sans-serif;
     font-weight: 100;
     letter-spacing: 1px;
     color: white;
 }
 
+.avatarSpace{
+    width: 270px;
+    display: flex;
+    justify-content: flex-end;
+}
+
 /* ---------- тело  ---------- */
+
+.bodyContent{
+    display: flex;
+    flex-direction: row;
+}
 
 .leftPart{
     border: solid #AD3B3B;
@@ -106,7 +151,8 @@ header{
     height: 30px;
     background-color: transparent;
     border: none;
-    background-image: url(img/fullscreen.svg);
+    background-image: url(/img/fullscreen.svg);
+    transition: .4s ease-in-out;
 }
 
 .categories{
@@ -124,6 +170,97 @@ header{
     transition: .1s ease-in-out;
 }
 
+.rightPart{
+    padding-top: 40px;
+    padding-left:  64px;
+}
+
+.partTitle{
+    color: #3E4347;
+    font-family: Yandex-Sans, sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    padding-bottom: 20px;
+    user-select: none;
+}
+
+.films{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.preview{
+    background-image: url(/img/preview.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 260px;
+    height: 390px;
+    border-radius: 4px;
+    margin-bottom: 40px;
+    transition: .1s ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.showMore{
+    display: flex;
+    justify-content: flex-end;
+    font-family: Yandex-Sans, sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 40px;
+    margin-top: -18px;
+}
+
+.showMore a{
+    transition: .1s ease-out;
+    width: 150px;
+    color: #3E4347;
+}
+
+.darkMode{
+    background-color: black;
+    width: 260px;
+    height: 390px;
+    border-radius: 4px;
+    opacity: 60%;
+    transition: .1s ease-out;
+}
+
+.filmTitle{
+    color: #ffffff;
+    font-family: Yandex-Sans, sans-serif;
+    font-size: 24px;
+    font-weight: 300;
+    z-index: 1;
+    bottom: 0;
+    padding-bottom: 50px;
+    transition: .3s ease-in;
+    padding-left: 10px;
+    position: absolute;
+}
+
+.filmDesc{
+    color: #d4d4d4;
+    font-family: Yandex-Sans, sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    z-index: 1;
+    bottom: 0;
+    padding-bottom: 30px;
+    transition: .3s ease-in;
+    padding-left: 10px;
+    position: absolute;
+}
+
+.filmInfo, .filmInfo1, .filmInfo2, .filmInfo3, .filmInfo4, .filmInfo5, .filmInfo6, .filmInfo7, .filmInfo8, .filmInfo9, .filmInfo10, .filmInfo11, .filmInfo12, .filmInfo13, .filmInfo14, .filmInfo15, .filmInfo16, .filmInfo17, .filmInfo18, .filmInfo19{
+    transition: .2s ease-out;
+    opacity: 0%;
+}
+
 /* ----------  события мыши  ---------- */
 
 .searchbar:focus{
@@ -136,10 +273,20 @@ header{
 
 #fullscreen:hover{
     transform: scale(1.05) perspective(1px);
+    transition: .1s;
 }
 
 .categories a:hover{
-    color: #AD3B3B;
+    color: #f52929;
+}
+
+.preview:hover{
+    transform: scale(1.06) perspective(1px);
+    cursor: pointer;
+}
+
+.showMore a:hover{
+    color: #f52929;
 }
 
 /* ----------  псевдоэлементы  ---------- */
