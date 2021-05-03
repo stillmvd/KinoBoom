@@ -6,69 +6,70 @@
     <link rel = 'stylesheet' href = 'css/style.css'>
     <script src = 'js/main.js'></script>
 </head>
-<header>
+<header id = 'header'>
     <div class = 'innerHeader container'>
         <div class = 'logoSpace'>
             <a href = 'index.html'>
-                <img src = 'img/logo.svg' alt = 'trouble' id = 'logo' onmouseover = 'ChangeOver()' onmouseout = 'ChangeOut()'>
+                <img src = 'img/bombom.svg' alt = 'logo' id = 'logo' onmouseover = 'ChangeOver()' onmouseout = 'ChangeOut()'>
             </a>
-            <img src = 'img/home.svg' alt = 'trouble' class = 'mainPage' id = 'mainPage'>
         </div>
         <div class = 'navSpace'>
             <a href = '#'>
-                оставить отзыв
+                Фильмы
             </a>
-            <input class = 'searchbar' type = 'text' placeholder = 'поиск фильмов'>
             <a href = '#'>
-                о подписке
+                Сериалы
+            </a>
+            <!-- <input class = 'searchbar' type = 'text' placeholder = 'поиск фильмов'> -->
+            <a href = '#'>
+                Подписка
+            </a>
+            <img src = '/img/search.svg' alt = 'search' class = 'searchLoop'>
+            <a href = '#'>
+                Поиск
             </a>
         </div>
         <div class = 'avatarSpace'>
-            <a href = '#'>
-                <img src = 'img/user.svg' alt = 'trouble'>
-            </a>
+            <img onclick = 'modalOpen()' id = 'avatar' data-modal = 'modalOpen' src = 'img/user.svg' alt = 'user'>
         </div>
     </div>
-</header>
-<body>
     <div class = 'fullscreen'>
         <button id = 'fullscreen' onclick = 'fullscreen()'>
 
         </button>
     </div>
+    <div class = 'modalWind' id = 'modalWind' data-modal = 'modalOpen'>
+        <img src = '/img/cross.svg' alt = 'close' onclick = 'modalClose()' id = 'cross'>
+        <p>Войти</p>
+        <form action = '' class = 'logForm'>
+            <input type = 'text' placeholder = 'Логин'>
+            <input type = 'text' placeholder = 'Пароль'>
+            <input type = 'submit'>
+        </form>
+    </div>
+</header>
+<div class = 'overlay' id = 'overlay'>
+            
+</div>
+<body>
     <div class = 'bodyContent container'>
         <div class = 'leftPart'>
             <div class = 'categories'>
                 <a href = ''>Аниме</a>
-                <a href = ''>Биография</a>
                 <a href = ''>Боевик</a>
                 <a href = ''>Вестерн</a>
-                <a href = ''>Военный</a>
                 <a href = ''>Детектив</a>
                 <a href = ''>Детский</a>
-                <a href = ''>Для взрослых</a>
                 <a href = ''>Документальный</a>
                 <a href = ''>Драма</a>
-                <a href = ''>Игра</a>
-                <a href = ''>История</a>
                 <a href = ''>Комедия</a>
-                <a href = ''>Концерт</a>
-                <a href = ''>Короткометражка</a>
-                <a href = ''>Криминал</a>
-                <a href = ''>Мелодрама</a>
-                <a href = ''>Музыка</a>
                 <a href = ''>Мультфильм</a>
                 <a href = ''>Мюзикл</a>
-                <a href = ''>Новости</a>
                 <a href = ''>Приключения</a>
-                <a href = ''>Реальное ТВ</a>
                 <a href = ''>Семейный</a>
-                <a href = ''>Сериал</a>
                 <a href = ''>Спорт</a>
-                <a href = ''>Ток-шоу</a>
                 <a href = ''>Триллер</a>
                 <a href = ''>Ужасы</a>
-                <a href = ''>Фантастика</a>
                 <a href = ''>Фэнтези</a>
             </div>
         </div>
@@ -77,7 +78,7 @@
                 Новинки
             </h3>
             <div class = 'films'>
-                <div class = 'preview' onmouseover = 'showInfo()' onmouseout = 'hideInfo()'>
+                <div class = 'preview hover' onmouseover = 'showInfo()' onmouseout = 'hideInfo()'>
                     <div class = 'filmInfo' id = 'filmInfo'>
                         <div class = 'darkMode'>
                             
@@ -90,7 +91,7 @@
                         </p>
                     </div>
                 </div>
-                <div class = 'preview' onmouseover = 'showInfo1()' onmouseout = 'hideInfo1()'>
+                <div class = 'preview1 hover' onmouseover = 'showInfo1()' onmouseout = 'hideInfo1()'>
                     <div class = 'filmInfo1' id = 'filmInfo1'>
                         <div class = 'darkMode'>
                             
@@ -103,7 +104,7 @@
                         </p>
                     </div>
                 </div>
-                <div class = 'preview' onmouseover = 'showInfo2()' onmouseout = 'hideInfo2()'>
+                <div class = 'preview2 hover' onmouseover = 'showInfo2()' onmouseout = 'hideInfo2()'>
                     <div class = 'filmInfo2' id = 'filmInfo2'>
                         <div class = 'darkMode'>
                             
@@ -116,7 +117,7 @@
                         </p>
                     </div>
                 </div>
-                <div class = 'preview' onmouseover = 'showInfo3()' onmouseout = 'hideInfo3()'>
+                <div class = 'preview3 hover' onmouseover = 'showInfo3()' onmouseout = 'hideInfo3()'>
                     <div class = 'filmInfo3' id = 'filmInfo3'>
                         <div class = 'darkMode'>
                             
@@ -129,7 +130,7 @@
                         </p>
                     </div>
                 </div>
-                <div class = 'preview' onmouseover = 'showInfo4()' onmouseout = 'hideInfo4()'>
+                <div class = 'preview4 hover' onmouseover = 'showInfo4()' onmouseout = 'hideInfo4()'>
                     <div class = 'filmInfo4' id = 'filmInfo4'>
                         <div class = 'darkMode'>
                             
@@ -142,7 +143,7 @@
                         </p>
                     </div>
                 </div>
-                <div class = 'preview' onmouseover = 'showInfo5()' onmouseout = 'hideInfo5()'>
+                <div class = 'preview5 hover' onmouseover = 'showInfo5()' onmouseout = 'hideInfo5()'>
                     <div class = 'filmInfo5' id = 'filmInfo5'>
                         <div class = 'darkMode'>
                             
@@ -155,7 +156,7 @@
                         </p>
                     </div>
                 </div>
-                <div class = 'preview' onmouseover = 'showInfo6()' onmouseout = 'hideInfo6()'>
+                <div class = 'preview6 hover' onmouseover = 'showInfo6()' onmouseout = 'hideInfo6()'>
                     <div class = 'filmInfo6' id = 'filmInfo6'>
                         <div class = 'darkMode'>
                             
@@ -168,34 +169,8 @@
                         </p>
                     </div>
                 </div>
-                <div class = 'preview' onmouseover = 'showInfo7()' onmouseout = 'hideInfo7()'>
+                <div class = 'preview7 hover' onmouseover = 'showInfo7()' onmouseout = 'hideInfo7()'>
                     <div class = 'filmInfo7' id = 'filmInfo7'>
-                        <div class = 'darkMode'>
-                            
-                        </div>
-                        <h2 class = 'filmTitle'>
-                            Мстители
-                        </h2>
-                        <p class = 'filmDesc'>
-                            Дата выхода: 3 мая 2012 года
-                        </p>
-                    </div>
-                </div>
-                <div class = 'preview' onmouseover = 'showInfo8()' onmouseout = 'hideInfo8()'>
-                    <div class = 'filmInfo8' id = 'filmInfo8'>
-                        <div class = 'darkMode'>
-                            
-                        </div>
-                        <h2 class = 'filmTitle'>
-                            Мстители
-                        </h2>
-                        <p class = 'filmDesc'>
-                            Дата выхода: 3 мая 2012 года
-                        </p>
-                    </div>
-                </div>
-                <div class = 'preview' onmouseover = 'showInfo9()' onmouseout = 'hideInfo9()'>
-                    <div class = 'filmInfo9' id = 'filmInfo9'>
                         <div class = 'darkMode'>
                             
                         </div>
@@ -217,7 +192,7 @@
                 Популярное
             </h3>
             <div class = 'films'>
-                <div class = 'preview' onmouseover = 'showInfo10()' onmouseout = 'hideInfo10()'>
+                <div class = 'preview8 hover' onmouseover = 'showInfo10()' onmouseout = 'hideInfo10()'>
                     <div class = 'filmInfo10' id = 'filmInfo10'>
                         <div class = 'darkMode'>
                             
@@ -230,7 +205,7 @@
                         </p>
                     </div>
                 </div>
-                <div class = 'preview' onmouseover = 'showInfo11()' onmouseout = 'hideInfo11()'>
+                <div class = 'preview9 hover' onmouseover = 'showInfo11()' onmouseout = 'hideInfo11()'>
                     <div class = 'filmInfo11' id = 'filmInfo11'>
                         <div class = 'darkMode'>
                             
@@ -243,7 +218,7 @@
                         </p>
                     </div>
                 </div>
-                <div class = 'preview' onmouseover = 'showInfo12()' onmouseout = 'hideInfo12()'>
+                <div class = 'preview10 hover' onmouseover = 'showInfo12()' onmouseout = 'hideInfo12()'>
                     <div class = 'filmInfo12' id = 'filmInfo12'>
                         <div class = 'darkMode'>
                             
@@ -256,7 +231,7 @@
                         </p>
                     </div>
                 </div>
-                <div class = 'preview' onmouseover = 'showInfo13()' onmouseout = 'hideInfo13()'>
+                <div class = 'preview11 hover' onmouseover = 'showInfo13()' onmouseout = 'hideInfo13()'>
                     <div class = 'filmInfo13' id = 'filmInfo13'>
                         <div class = 'darkMode'>
                             
@@ -269,7 +244,7 @@
                         </p>
                     </div>
                 </div>
-                <div class = 'preview' onmouseover = 'showInfo14()' onmouseout = 'hideInfo14()'>
+                <div class = 'preview12 hover' onmouseover = 'showInfo14()' onmouseout = 'hideInfo14()'>
                     <div class = 'filmInfo14' id = 'filmInfo14'>
                         <div class = 'darkMode'>
                             
@@ -282,7 +257,7 @@
                         </p>
                     </div>
                 </div>
-                <div class = 'preview' onmouseover = 'showInfo15()' onmouseout = 'hideInfo15()'>
+                <div class = 'preview13 hover' onmouseover = 'showInfo15()' onmouseout = 'hideInfo15()'>
                     <div class = 'filmInfo15' id = 'filmInfo15'>
                         <div class = 'darkMode'>
                             
@@ -295,7 +270,7 @@
                         </p>
                     </div>
                 </div>
-                <div class = 'preview' onmouseover = 'showInfo16()' onmouseout = 'hideInfo16()'>
+                <div class = 'preview14 hover' onmouseover = 'showInfo16()' onmouseout = 'hideInfo16()'>
                     <div class = 'filmInfo16' id = 'filmInfo16'>
                         <div class = 'darkMode'>
                             
@@ -308,34 +283,8 @@
                         </p>
                     </div>
                 </div>
-                <div class = 'preview' onmouseover = 'showInfo17()' onmouseout = 'hideInfo17()'>
+                <div class = 'preview15 hover' onmouseover = 'showInfo17()' onmouseout = 'hideInfo17()'>
                     <div class = 'filmInfo17' id = 'filmInfo17'>
-                        <div class = 'darkMode'>
-                            
-                        </div>
-                        <h2 class = 'filmTitle'>
-                            Мстители
-                        </h2>
-                        <p class = 'filmDesc'>
-                            Дата выхода: 3 мая 2012 года
-                        </p>
-                    </div>
-                </div>
-                <div class = 'preview' onmouseover = 'showInfo18()' onmouseout = 'hideInfo18()'>
-                    <div class = 'filmInfo18' id = 'filmInfo18'>
-                        <div class = 'darkMode'>
-                            
-                        </div>
-                        <h2 class = 'filmTitle'>
-                            Мстители
-                        </h2>
-                        <p class = 'filmDesc'>
-                            Дата выхода: 3 мая 2012 года
-                        </p>
-                    </div>
-                </div>
-                <div class = 'preview' onmouseover = 'showInfo19()' onmouseout = 'hideInfo19()'>
-                    <div class = 'filmInfo19' id = 'filmInfo19'>
                         <div class = 'darkMode'>
                             
                         </div>

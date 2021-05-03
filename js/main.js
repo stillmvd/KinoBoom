@@ -1,7 +1,6 @@
 let changeScreen = document.getElementById('switch');
 let expandButton = document.getElementById('fullscreen');
 
-
 function fullscreen() {
     if (changeScreen.requestFullscreen) changeScreen.requestFullscreen();
 }
@@ -12,16 +11,30 @@ document.addEventListener('fullscreenchange', (event) => {
     } else {
         document.getElementById('fullscreen').style.opacity = '100%';
     }
-  });
+});
+
+function modalOpen() {
+    document.getElementById('modalWind').style.transform = 'translate(-50%, -50%)';
+    document.getElementById('modalWind').style.opacity = '100%';
+    document.getElementById('overlay').style.opacity = '100%';
+    document.getElementById('overlay').style.visibility = 'visible';
+}
+
+function modalClose() {
+    document.getElementById('modalWind').style.transform = 'translate(-50%, -250%)';
+    document.getElementById('modalWind').style.opacity = '0%';
+    document.getElementById('overlay').style.opacity = '0%';
+    document.getElementById('overlay').style.visibility = 'hidden';
+}
+
+// useless
 
 function ChangeOver() {
-    document.getElementById('logo').style.transform = 'scale(1.15)';
-    document.getElementById('mainPage').style.marginLeft = '36px';
+    document.getElementById('logo').style.transform = 'scale(1.08)';
 }
     
 function ChangeOut() {   
     document.getElementById('logo').style.transform = 'scale(1)';
-    document.getElementById('mainPage').style.marginLeft = '0px';
 }
 
 function showInfo() {   
@@ -166,20 +179,4 @@ function showInfo17() {
 
 function hideInfo17() {   
     document.getElementById('filmInfo17').style.opacity = '0%';
-}
-
-function showInfo18() {   
-    document.getElementById('filmInfo18').style.opacity = '100%';
-}
-
-function hideInfo18() {   
-    document.getElementById('filmInfo18').style.opacity = '0%';
-}
-
-function showInfo19() {   
-    document.getElementById('filmInfo19').style.opacity = '100%';
-}
-
-function hideInfo19() {   
-    document.getElementById('filmInfo19').style.opacity = '0%';
 }
