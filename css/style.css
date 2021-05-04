@@ -57,8 +57,9 @@ header{
     transition: .1s ease-in-out;
     position: relative;
     z-index: 0;
-    width: 116px;
+    width: 156px;
     height: 38px;
+    margin-bottom: 10px;
 }
 
 .navSpace{
@@ -458,4 +459,9 @@ body{
     font-family: 'Avenir Next Cyr';
     font-weight: 300;
     font-size: 14px;
+}
+
+input::placeholder{
+    font-family: 'Avenir Next Cyr';
+    color: #343536;
 }
