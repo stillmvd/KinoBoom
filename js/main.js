@@ -14,18 +14,24 @@ document.addEventListener('fullscreenchange', (event) => {
 });
 
 function modalOpen() {
-    document.getElementById('modalWind').style.transform = 'translate(-50%, -50%)';
-    document.getElementById('modalWind').style.opacity = '100%';
+    document.getElementById('modalWindLogin').style.transform = 'translate(-50%, -50%)';
+    document.getElementById('modalWindLogin').style.opacity = '100%';
     document.getElementById('overlay').style.opacity = '100%';
     document.getElementById('overlay').style.visibility = 'visible';
 }
 
 function modalClose() {
-    document.getElementById('modalWind').style.transform = 'translate(-50%, -250%)';
-    document.getElementById('modalWind').style.opacity = '0%';
+    document.getElementById('modalWindLogin').style.transform = 'translate(-50%, -250%)';
+    document.getElementById('modalWindLogin').style.opacity = '0%';
     document.getElementById('overlay').style.opacity = '0%';
     document.getElementById('overlay').style.visibility = 'hidden';
 }
+
+document.addEventListener('keydown', function(event) {
+    if (event.code == 'Escape') {
+        modalClose();
+    }
+});
 
 // useless
 

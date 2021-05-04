@@ -9,7 +9,7 @@
 <header id = 'header'>
     <div class = 'innerHeader container'>
         <div class = 'logoSpace'>
-            <a href = 'index.html'>
+            <a href = 'index.php'>
                 <img src = 'img/bombom.svg' alt = 'logo' id = 'logo' onmouseover = 'ChangeOver()' onmouseout = 'ChangeOut()'>
             </a>
         </div>
@@ -20,14 +20,11 @@
             <a href = '#'>
                 Сериалы
             </a>
-            <!-- <input class = 'searchbar' type = 'text' placeholder = 'поиск фильмов'> -->
             <a href = '#'>
                 Подписка
             </a>
-            <img src = 'img/search.svg' alt = 'search' class = 'searchLoop'>
-            <a href = '#'>
-                Поиск
-            </a>
+            <img src = 'img/search.svg' alt = 'search' class = 'searchLoop' id = 'searchLoop' disabled>
+            <p>Поиск</p>
         </div>
         <div class = 'avatarSpace'>
             <img onclick = 'modalOpen()' id = 'avatar' data-modal = 'modalOpen' src = 'img/user.svg' alt = 'user'>
@@ -38,14 +35,28 @@
 
         </button>
     </div>
-    <div class = 'modalWind' id = 'modalWind' data-modal = 'modalOpen'>
-        <img src = 'img/cross.svg' alt = 'close' onclick = 'modalClose()' id = 'cross'>
-        <p>Войти</p>
-        <form action = '' class = 'logForm'>
-            <input type = 'text' placeholder = 'Логин'>
-            <input type = 'text' placeholder = 'Пароль'>
-            <input type = 'submit'>
-        </form>
+    <div class = 'flipContainer'>
+        <div class = 'flipper'>
+            <div class = 'modalWindLogin' id = 'modalWindLogin' data-modal = 'modalOpen'>
+                <img src = 'img/cross.svg' alt = 'close' onclick = 'modalClose()' id = 'cross'>
+                <p class = 'regTitle'>Войти</p>
+                <form action = '' class = 'logForm'>
+                    <input type = 'text' placeholder = 'Логин' name = 'userLog'>
+                    <input type = 'text' placeholder = 'Пароль' name = 'userPass'>
+                    <input type = 'submit' value = 'войти'>
+                </form>
+                <p class = 'question'>Зарегистрироваться</p>
+            </div>
+            <div class = 'modalWindReg' id = 'modalWindReg' data-modal = 'modalOpen'>
+                <img src = 'img/cross.svg' alt = 'close' onclick = 'modalClose()' id = 'cross'>
+                <p class = 'regTitle'>Войти</p>
+                <form action = '' class = 'logForm'>
+                    <input type = 'text' placeholder = 'Логин' name = 'userLog'>
+                    <input type = 'text' placeholder = 'Пароль' name = 'userPass'>
+                    <input type = 'submit' value = 'зарегистрироваться'>
+                </form>
+            </div>
+        </div>
     </div>
 </header>
 <div class = 'overlay' id = 'overlay'>

@@ -74,35 +74,21 @@ header{
     padding-right: 30px;
 }
 
-.searchbar{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    background-color: white;
-    border-radius: 3px;
-    padding: 0px 13px;
-    width: 500px;
-    height: 30px;
-    border: none;
-    transition: .2s;
-    font-family: 'Avenir Next Cyr';
-    font-weight: 300;
-    font-size: 14px;
-    color: #3E4347;
-}
-
 .searchLoop{
+    transition: .1s;
     width: 18px;
     height: 18px;
     filter: invert();
     padding-right: 10px;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
-.innerHeader a{
+.innerHeader a, p{
     font-size: 20px;
     font-family: 'Avenir Next Cyr';
-    letter-spacing: 1px;
     color: white;
+    cursor: pointer;
 }
 
 .avatarSpace{
@@ -115,7 +101,7 @@ header{
     user-select: none;
 }
 
-.modalWind{
+.modalWindLogin{
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -133,7 +119,27 @@ header{
     transition: .3s ease-in-out;
 }
 
-.modalWind p{
+.modalWindReg{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    opacity: 0%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -250%);
+    z-index: 20;
+    padding: 80px 30px;
+    background-color: white;
+    border-radius: 8px;
+    width: 400px;
+    box-shadow: 0px 5px 20px 0px rgb(73, 73, 73);
+    transition: .3s ease-in-out;
+    visibility: hidden;
+}
+
+.regTitle{
+    color: #3E4347;
     font-size: 24px;
     text-align: center;
     font-family: 'Avenir Next Cyr';
@@ -152,6 +158,18 @@ header{
     backdrop-filter: blur(4px);
     visibility: hidden;
     transition: .3s ease-in-out;
+}
+
+.question{
+    font-size: 14px;
+    color: rgb(170, 170, 170);
+    padding-top: 40px;
+    cursor: pointer;
+    font-family: 'Avenir Next Cyr';
+}
+
+.modalWindReg{
+
 }
 
 .logForm{
@@ -192,6 +210,8 @@ body{
     flex-direction: row;
     background-color: white;
     padding: 0px 30px;
+    margin-top: 50px;
+    border-radius: 10px;
 }
 
 .leftPart{
@@ -230,7 +250,6 @@ body{
     font-family: 'Avenir Next Cyr';
     font-weight: 300;
     color: #3E4347;
-    transition: .1s ease-in-out;
 }
 
 .rightPart{
@@ -255,7 +274,7 @@ body{
 }
 
 .preview{
-    background-image: url(/img/preview.png);
+    background-image: url(img/preview.png);
 }
 
 .preview1{
@@ -329,7 +348,6 @@ body{
 }
 
 .showMore a{
-    transition: .1s ease-out;
     width: 150px;
     color: #3E4347;
 }
@@ -405,7 +423,7 @@ body{
 }
 
 .categories a:hover{
-    color: #f52929;
+    color: #fea228;
 }
 
 .hover:hover{
@@ -413,7 +431,20 @@ body{
 }
 
 .showMore a:hover{
-    color: #f52929;
+    color: #fea228;
+}
+
+.question:hover{
+    color: rgb(66, 66, 66);
+}
+
+.logForm input:focus{
+    outline: none;
+    border: 1px solid #fea228;
+}
+
+.navSpace a:hover{
+    color: #fea228;
 }
 
 /* ----------  псевдоэлементы  ---------- */
