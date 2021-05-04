@@ -274,7 +274,7 @@ body{
 }
 
 .preview{
-    background-image: url(img/preview.png);
+    background-image: url(/img/preview.png);
 }
 
 .preview1{
@@ -453,14 +453,7 @@ body{
     background-color: rgba(150, 150, 150, 0.411);
 }
 
-.searchbar::placeholder{
-    padding-left: 2px;
+.logForm input::placeholder{
     font-family: 'Avenir Next Cyr';
-    font-weight: 300;
-    font-size: 14px;
-}
-
-input::placeholder{
-    font-family: 'Avenir Next Cyr';
-    color: #343536;
+    color: rgb(63, 63, 63);
 }
