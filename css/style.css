@@ -76,8 +76,8 @@ header{
 
 .searchLoop{
     transition: .1s;
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     filter: invert();
     padding-right: 10px;
     user-select: none;
@@ -85,7 +85,7 @@ header{
 }
 
 .innerHeader a, p{
-    font-size: 20px;
+    font-size: 17px;
     font-family: 'Avenir Next Cyr';
     color: white;
     cursor: pointer;

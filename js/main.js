@@ -35,14 +35,6 @@ document.addEventListener('keydown', function(event) {
 
 // useless
 
-function ChangeOver() {
-    document.getElementById('logo').style.transform = 'scale(1.08)';
-}
-    
-function ChangeOut() {   
-    document.getElementById('logo').style.transform = 'scale(1)';
-}
-
 function showInfo() {   
     document.getElementById('filmInfo').style.opacity = '100%';
 }
