@@ -20,12 +20,8 @@ function openSearch() {
     document.getElementById('searchbar').classList.add('active');
 }
 
-function placeholder() {
-    inputPlaceholder(document.getElementById('searchbar')).style.color = 'white';
-}
-
 function closeSearch() {
-    document.getElementById('bodyContent').style.marginTop = '50px';
+    document.getElementById('bodyContent').style.marginTop = '30px';
     document.getElementById('searchSpace').style.top = '-66px';
     document.getElementById('searchbar').style.opacity = '0%';
     document.getElementById('searchbar').classList.remove('active');

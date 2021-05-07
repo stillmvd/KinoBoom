@@ -127,7 +127,7 @@ header{
     font-size: 16px;
     font-family: 'Avenir Next Cyr';
     font-weight: normal;
-    border: solid 1px rgb(221, 221, 221);
+    border: solid 1px rgb(230, 230, 230);
 }
 
 #getSearch{
@@ -260,7 +260,7 @@ body{
     justify-content: space-between;
     width: 1380px;
     padding: 0px 30px;
-    margin-top: 50px;
+    margin-top: 30px;
     border-radius: 10px 10px 0px 0px;
     transition: .1s ease;
 }
@@ -270,7 +270,7 @@ body{
     width: 14%;
     padding-left: 20px;
     border-radius: 10px;
-    border: solid 1px rgb(221, 221, 221);
+    border: solid 1px rgb(230, 230, 230);
 }
 
 .fullscreen{
@@ -311,7 +311,7 @@ body{
     padding: 20px 20px 0px 20px;
     width: 80%;
     border-radius: 10px;
-    border: solid 1px rgb(221, 221, 221);
+    border: solid 1px rgb(230, 230, 230);
 }
 
 .partTitle{
