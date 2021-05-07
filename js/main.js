@@ -14,10 +14,29 @@ document.addEventListener('fullscreenchange', (event) => {
 });
 
 function openSearch() {
-    document.getElementById('searchbar').style.visibility = 'visible';
     document.getElementById('bodyContent').style.marginTop = '64px';
     document.getElementById('searchSpace').style.top = '66px';
     document.getElementById('searchbar').style.opacity = '100%';
+    document.getElementById('searchbar').classList.add('active');
+}
+
+function placeholder() {
+    inputPlaceholder(document.getElementById('searchbar')).style.color = 'white';
+}
+
+function closeSearch() {
+    document.getElementById('bodyContent').style.marginTop = '50px';
+    document.getElementById('searchSpace').style.top = '-66px';
+    document.getElementById('searchbar').style.opacity = '0%';
+    document.getElementById('searchbar').classList.remove('active');
+}
+
+function checkSearch() {
+    if (document.getElementById('searchbar').classList.contains('active')) {
+        closeSearch();
+    } else {
+        openSearch();
+    }
 }
 
 function modalOpen() {

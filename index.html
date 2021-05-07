@@ -7,7 +7,7 @@
     <script type = 'text/javascript' src = 'js/main.js'></script>
 </head>
 <header id = 'header'>
-    <div class = 'innerHeader container'>
+    <div class = 'innerHeader newCont'>
         <div class = 'logoSpace'>
             <a href = 'index.php'>
                 <img src = 'img/logo1.svg' alt = 'logo' id = 'logo'>
@@ -24,7 +24,7 @@
                 Подписка
             </a>
             <img src = 'img/searchWhite.svg' alt = 'search' class = 'searchLoop' id = 'searchLoop' disabled>
-            <p onclick = 'openSearch()' id = 'searchWord'>Поиск</p>
+            <p onclick = 'checkSearch()' id = 'searchWord'>Поиск</p>
             <form action = '' class = 'searchSpace' id = 'searchSpace' autocomplete = 'off'>
                 <input autocomplete = 'off' type = 'text' placeholder = 'Поиск фильмов' name = 'userSearch' id = 'searchbar'>
                 <input type = 'submit' id = 'getSearch'>
@@ -65,7 +65,7 @@
     </div>
 </header>
 <div class = 'overlay' id = 'overlay'>
-            
+    
 </div>
 <body>
     <div class = 'bodyContent container' id = 'bodyContent'>
