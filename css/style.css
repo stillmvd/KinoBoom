@@ -485,7 +485,7 @@ footer{
     outline: none;
 }
 
-#searchbar:focus #searchbar::placeholder{
+#searchbar:focus::placeholder{
     color: white;
     opacity: 0%;
 }
