@@ -122,11 +122,6 @@ header{
     border: transparent;
     border-radius: 10px;
     background-color: white;
-    background-image: url(/img/search.svg);
-    background-size: 20px;
-    background-position-y: center;
-    background-position-x: 1350px;
-    background-repeat: no-repeat;
     color: #000000;
     font-size: 16px;
     font-family: 'Avenir Next Cyr';
@@ -260,7 +255,8 @@ body{
 .bodyContent{
     display: flex;
     flex-direction: row;
-    background-color: white;
+    justify-content: space-between;
+    width: 1380px;
     padding: 0px 30px;
     margin-top: 50px;
     border-radius: 10px 10px 0px 0px;
@@ -268,9 +264,10 @@ body{
 }
 
 .leftPart{
-    border: solid #e6e6e6;
-    border-width: 0px 1.9px 0px 0px;
-    width: 210px;
+    background-color: white;
+    width: 14%;
+    padding-left: 20px;
+    border-radius: 10px;
 }
 
 .fullscreen{
@@ -296,7 +293,7 @@ body{
     line-height: 30px;
     width: 120px;
     padding-right: 100px;
-    padding-top: 40px;
+    padding-top: 20px;
 }
 
 .categories a{
@@ -307,8 +304,10 @@ body{
 }
 
 .rightPart{
-    padding-top: 40px;
-    padding-left: 30px;
+    background-color: white;
+    padding: 20px 20px 0px 20px;
+    width: 80%;
+    border-radius: 10px;
 }
 
 .partTitle{
