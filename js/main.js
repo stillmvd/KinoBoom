@@ -9,9 +9,16 @@ document.addEventListener('fullscreenchange', (event) => {
     if (document.fullscreenElement) {
         document.getElementById('fullscreen').style.opacity = '0%';
     } else {
-        document.getElementById('fullscreen').style.opacity = '100%';
+        document.getElementById('fullscreen').style.opacity = '60%';
     }
 });
+
+function openSearch() {
+    document.getElementById('searchbar').style.visibility = 'visible';
+    document.getElementById('bodyContent').style.marginTop = '64px';
+    document.getElementById('searchSpace').style.top = '66px';
+    document.getElementById('searchbar').style.opacity = '100%';
+}
 
 function modalOpen() {
     document.getElementById('modalWindLogin').style.transform = 'translate(-50%, -50%)';

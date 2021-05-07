@@ -4,7 +4,7 @@
     <meta charset = 'UTF-8'>
     <title>KinoBoom</title>
     <link rel = 'stylesheet' href = 'css/style.css'>
-    <script src = 'js/main.js'></script>
+    <script type = 'text/javascript' src = 'js/main.js'></script>
 </head>
 <header id = 'header'>
     <div class = 'innerHeader container'>
@@ -23,11 +23,16 @@
             <a href = '#'>
                 Подписка
             </a>
-            <img src = 'img/search.svg' alt = 'search' class = 'searchLoop' id = 'searchLoop' disabled>
-            <p>Поиск</p>
+            <img src = 'img/searchWhite.svg' alt = 'search' class = 'searchLoop' id = 'searchLoop' disabled>
+            <p onclick = 'openSearch()' id = 'searchWord'>Поиск</p>
+            <form action = '' class = 'searchSpace' id = 'searchSpace' autocomplete = 'off'>
+                <input autocomplete = 'off' type = 'text' placeholder = 'Поиск фильмов' name = 'userSearch' id = 'searchbar'>
+                <input type = 'submit' id = 'getSearch'>
+            </form>
         </div>
         <div class = 'avatarSpace'>
             <img onclick = 'modalOpen()' id = 'avatar' data-modal = 'modalOpen' src = 'img/user.svg' alt = 'user'>
+            <p onclick = 'modalOpen()'>Войти</p>
         </div>
     </div>
     <div class = 'fullscreen'>
@@ -63,7 +68,7 @@
             
 </div>
 <body>
-    <div class = 'bodyContent container'>
+    <div class = 'bodyContent container' id = 'bodyContent'>
         <div class = 'leftPart'>
             <div class = 'categories'>
                 <a href = ''>Аниме</a>
@@ -196,7 +201,7 @@
             </div>
             <div class = 'showMore'>
                 <a href = '#'>
-                    показать больше
+                    Показать больше
                 </a>
             </div>
             <h3 class = 'partTitle'>
@@ -310,13 +315,23 @@
             </div>
             <div class = 'showMore'>
                 <a href = '#'>
-                    показать больше
+                    Показать больше
                 </a>
             </div>
         </div>
     </div>
 </body>
 <footer>
-    
+    <div class = 'innerFooter container'>
+        <a class = 'footerLink' href = ''>
+            Что такое KinoBoom
+        </a>
+        <a class = 'footerLink' href = 'https://vk.me/moneysend/asslocker'>
+            Поддержать проект
+        </a>
+        <a class = 'footerLink' href = 'https://vk.com/write403091284'>
+            По всем вопросам
+        </a>
+    </div>
 </footer>
 </html>
