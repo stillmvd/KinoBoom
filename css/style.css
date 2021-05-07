@@ -6,7 +6,7 @@
 @font-face {
 	font-family: 'Avenir Next Cyr';
 	src: local('Avenir Next Cyr Regular'), local('AvenirNextCyr-Regular'),
-		url('/fonts/AvenirNextCyr-Regular.ttf') format('truetype');
+		url(../fonts/AvenirNextCyr-Regular.ttf) format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -14,7 +14,7 @@
 @font-face {
 	font-family: 'Avenir Next Cyr';
 	src: local('Avenir Next Cyr Light'), local('AvenirNextCyr-Light'),
-		url('/fonts/AvenirNextCyr-Light.ttf') format('truetype');
+		url(../fonts/AvenirNextCyr-Light.ttf) format('truetype');
 	font-weight: 200;
 	font-style: normal;
 }
@@ -22,7 +22,7 @@
 @font-face {
 	font-family: 'Avenir Next Cyr';
 	src: local('Avenir Next Cyr Regular'), local('AvenirNextCyr-Demi'),
-		url('/fonts/AvenirNextCyr-Demi.ttf') format('truetype');
+		url(../fonts/AvenirNextCyr-Demi.ttf) format('truetype');
 	font-weight: 500;
 	font-style: normal;
 }
@@ -255,13 +255,11 @@ body{
 }
 
 .bodyContent{
+    margin: auto;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     width: 1380px;
-    padding: 0px 30px;
-    margin-top: 30px;
-    border-radius: 10px 10px 0px 0px;
+    justify-content: space-between;
+    margin-top: 40px;
     transition: .1s ease;
 }
 
@@ -269,6 +267,7 @@ body{
     background-color: white;
     width: 14%;
     padding-left: 20px;
+    margin-bottom: 40px;
     border-radius: 10px;
     border: solid 1px rgb(230, 230, 230);
 }
@@ -295,7 +294,6 @@ body{
 .categories{
     line-height: 30px;
     width: 120px;
-    padding-right: 100px;
     padding-top: 20px;
 }
 
@@ -307,17 +305,32 @@ body{
 }
 
 .rightPart{
-    background-color: white;
-    padding: 20px 20px 0px 20px;
-    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 40px;
     border-radius: 10px;
+}
+
+.news{
+    background-color: white;
     border: solid 1px rgb(230, 230, 230);
+    padding: 20px 20px 20px 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.popular{
+    background-color: white;
+    border: solid 1px rgb(230, 230, 230);
+    padding: 20px 20px 20px 20px;
+    border-radius: 10px;
 }
 
 .partTitle{
     color: #3E4347;
     font-family: 'Avenir Next Cyr';
-    font-size: 26px;
+    font-size: 30px;
     font-weight: 500;
     padding-bottom: 20px;
     user-select: none;
@@ -325,73 +338,74 @@ body{
 
 .films{
     display: flex;
+    width: 1100px;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
 .preview{
-    background-image: url(/img/preview.png);
+    background-image: url(../img/preview.png);
 }
 
 .preview1{
-    background-image: url(/img/preview1.png);
+    background-image: url(../img/preview1.png);
 }
 
 .preview2{
-    background-image: url(/img/preview2.png);
+    background-image: url(../img/preview2.png);
 }
 
 .preview3{
-    background-image: url(/img/preview3.png);
+    background-image: url(../img/preview3.png);
 }
 
 .preview4{
-    background-image: url(/img/preview4.png);
+    background-image: url(../img/preview4.png);
 }
 
 .preview5{
-    background-image: url(/img/preview5.png);
+    background-image: url(../img/preview5.png);
 }
 
 .preview6{
-    background-image: url(/img/preview6.jpg);
+    background-image: url(../img/preview6.jpg);
 }
 
 .preview7{
-    background-image: url(/img/preview7.png);
+    background-image: url(../img/preview7.png);
 }
 
 .preview8{
-    background-image: url(/img/preview8.jpg);
+    background-image: url(../img/preview8.jpg);
 }
 
 .preview9{
-    background-image: url(/img/preview9.png);
+    background-image: url(../img/preview9.png);
 }
 
 .preview10{
-    background-image: url(/img/preview10.png);
+    background-image: url(../img/preview10.png);
 }
 
 .preview11{
-    background-image: url(/img/preview11.png);
+    background-image: url(../img/preview11.png);
 }
 
 .preview12{
-    background-image: url(/img/preview12.png);
+    background-image: url(../img/preview12.png);
 }
 
 .preview13{
-    background-image: url(/img/preview13.png);
+    background-image: url(../img/preview13.png);
 }
 
 .preview14{
-    background-image: url(/img/preview14.png);
+    background-image: url(../img/preview14.png);
 }
 
 .preview15{
-    background-image: url(/img/preview15.jpg);
+    background-image: url(../img/preview15.jpg);
 }
 
 .showMore{
@@ -400,7 +414,6 @@ body{
     font-family: 'Avenir Next Cyr';
     font-size: 18px;
     font-weight: normal;
-    margin-bottom: 40px;
     margin-top: -18px;
     user-select: none;
 }
@@ -412,7 +425,7 @@ body{
 
 .darkMode{
     background-color: rgba(0, 0, 0, 0.774);
-    width: 240px;
+    width: 260px;
     height: 370px;
     border-radius: 4px;
     opacity: 100%;
@@ -449,10 +462,10 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    width: 240px;
+    width: 260px;
     height: 370px;
-    border-radius: 4px;
-    margin-bottom: 40px;
+    border-radius: 10px;
+    margin-bottom: 34px;
     transition: .1s ease-in-out;
     position: relative;
     overflow: hidden;

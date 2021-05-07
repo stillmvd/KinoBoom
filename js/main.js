@@ -14,14 +14,14 @@ document.addEventListener('fullscreenchange', (event) => {
 });
 
 function openSearch() {
-    document.getElementById('bodyContent').style.marginTop = '64px';
-    document.getElementById('searchSpace').style.top = '66px';
+    document.getElementById('bodyContent').style.marginTop = '76px';
+    document.getElementById('searchSpace').style.top = '72px';
     document.getElementById('searchbar').style.opacity = '100%';
     document.getElementById('searchbar').classList.add('active');
 }
 
 function closeSearch() {
-    document.getElementById('bodyContent').style.marginTop = '30px';
+    document.getElementById('bodyContent').style.marginTop = '40px';
     document.getElementById('searchSpace').style.top = '-66px';
     document.getElementById('searchbar').style.opacity = '0%';
     document.getElementById('searchbar').classList.remove('active');
