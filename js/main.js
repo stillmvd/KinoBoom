@@ -14,16 +14,16 @@ document.addEventListener('fullscreenchange', (event) => {
 });
 
 function openSearch() {
-    document.getElementById('bodyContent').style.marginTop = '76px';
-    document.getElementById('searchSpace').style.top = '72px';
+    document.getElementById('searching').style.display = 'block';
     document.getElementById('searchbar').style.opacity = '100%';
+    document.getElementById('bodyContent').style.marginTop = '0px';
     document.getElementById('searchbar').classList.add('active');
 }
 
 function closeSearch() {
-    document.getElementById('bodyContent').style.marginTop = '40px';
-    document.getElementById('searchSpace').style.top = '-66px';
+    document.getElementById('searching').style.display = 'none';
     document.getElementById('searchbar').style.opacity = '0%';
+    document.getElementById('bodyContent').style.marginTop = '40px';
     document.getElementById('searchbar').classList.remove('active');
 }
 
@@ -36,17 +36,32 @@ function checkSearch() {
 }
 
 function modalOpen() {
-    document.getElementById('modalWindLogin').style.transform = 'translate(-50%, -50%)';
     document.getElementById('modalWindLogin').style.opacity = '100%';
+    document.getElementById('modalWindReg').style.opacity = '100%';
+    document.getElementById('modalWindLogin').style.visibility = 'visible';
+    document.getElementById('modalWindReg').style.visibility = 'visible';
     document.getElementById('overlay').style.opacity = '100%';
     document.getElementById('overlay').style.visibility = 'visible';
 }
 
 function modalClose() {
-    document.getElementById('modalWindLogin').style.transform = 'translate(-50%, -250%)';
     document.getElementById('modalWindLogin').style.opacity = '0%';
+    document.getElementById('modalWindReg').style.opacity = '0%';
+    document.getElementById('modalWindLogin').style.visibility = 'hidden';
+    document.getElementById('modalWindReg').style.visibility = 'hidden';
     document.getElementById('overlay').style.opacity = '0%';
     document.getElementById('overlay').style.visibility = 'hidden';
+}
+
+function modalChangeReg() {
+    document.getElementById('modalWindLogin').style.transform = 'rotateY(-180deg)';
+    document.getElementById('modalWindReg').style.transform = 'rotateY(180deg)';
+    document.getElementById('modalWindReg').style.transform = 'translateZ(-2px)';
+}
+
+function modalChangeLog() {
+    document.getElementById('modalWindReg').style.transform = 'rotateY(180deg)';
+    document.getElementById('modalWindLogin').style.transform = 'rotateY(10deg)';
 }
 
 document.addEventListener('keydown', function(event) {

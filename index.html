@@ -7,9 +7,9 @@
     <script type = 'text/javascript' src = 'js/main.js'></script>
 </head>
 <header id = 'header'>
-    <div class = 'innerHeader newCont'>
+    <div class = 'innerHeader container'>
         <div class = 'logoSpace'>
-            <a href = 'index.php'>
+            <a href = 'index.html'>
                 <img src = 'img/logo1.svg' alt = 'logo' id = 'logo'>
             </a>
         </div>
@@ -25,10 +25,6 @@
             </a>
             <img src = 'img/searchWhite.svg' alt = 'search' class = 'searchLoop' id = 'searchLoop' disabled>
             <p onclick = 'checkSearch()' id = 'searchWord'>Поиск</p>
-            <form action = '' class = 'searchSpace' id = 'searchSpace' autocomplete = 'off'>
-                <input autocomplete = 'off' type = 'text' placeholder = 'Поиск фильмов' name = 'userSearch' id = 'searchbar'>
-                <input type = 'submit' id = 'getSearch'>
-            </form>
         </div>
         <div class = 'avatarSpace'>
             <img onclick = 'modalOpen()' id = 'avatar' data-modal = 'modalOpen' src = 'img/user.svg' alt = 'user'>
@@ -40,32 +36,36 @@
 
         </button>
     </div>
-    <div class = 'flipContainer'>
-        <div class = 'flipper'>
-            <div class = 'modalWindLogin' id = 'modalWindLogin' data-modal = 'modalOpen'>
-                <img src = 'img/cross.svg' alt = 'close' onclick = 'modalClose()' id = 'cross'>
-                <p class = 'regTitle'>Войти</p>
-                <form action = '' class = 'logForm'>
-                    <input type = 'text' placeholder = 'Логин' name = 'userLog'>
-                    <input type = 'text' placeholder = 'Пароль' name = 'userPass'>
-                    <input type = 'submit' value = 'войти'>
-                </form>
-                <p class = 'question'>Зарегистрироваться</p>
-            </div>
-            <div class = 'modalWindReg' id = 'modalWindReg' data-modal = 'modalOpen'>
-                <img src = 'img/cross.svg' alt = 'close' onclick = 'modalClose()' id = 'cross'>
-                <p class = 'regTitle'>Войти</p>
-                <form action = '' class = 'logForm'>
-                    <input type = 'text' placeholder = 'Логин' name = 'userLog'>
-                    <input type = 'text' placeholder = 'Пароль' name = 'userPass'>
-                    <input type = 'submit' value = 'зарегистрироваться'>
-                </form>
-            </div>
-        </div>
+    <div class = 'overlay' id = 'overlay'>
+    
+    </div>
+    <div class = 'modalWindLogin' id = 'modalWindLogin' data-modal = 'modalOpen'>
+        <img src = 'img/cross.svg' alt = 'close' onclick = 'modalClose()' id = 'cross'>
+        <p class = 'regTitle'>Войти</p>
+        <form action = '' class = 'logForm'>
+            <input type = 'text' placeholder = 'Логин' name = 'userLog'>
+            <input type = 'text' placeholder = 'Пароль' name = 'userPass'>
+            <input type = 'submit' value = 'войти'>
+        </form>
+        <p class = 'questionLog' onclick = 'modalChangeReg()' id = 'question'>Зарегистрироваться</p>
+    </div>
+    <div class = 'modalWindReg' id = 'modalWindReg' data-modal = 'modalOpen'>
+        <img src = 'img/cross.svg' alt = 'close' onclick = 'modalClose()' id = 'cross'>
+        <p class = 'regTitle'>Регистрация</p>
+        <form action = '' class = 'logForm'>
+            <input type = 'text' placeholder = 'Логин' name = 'userLog'>
+            <input type = 'text' placeholder = 'Почта' name = 'userMail'>
+            <input type = 'text' placeholder = 'Пароль' name = 'userPass'>
+            <input type = 'submit' value = 'зарегистрироваться'>
+        </form>
+        <p class = 'questionReg' onclick = 'modalChangeLog()' id = 'question'>Войти</p>
     </div>
 </header>
-<div class = 'overlay' id = 'overlay'>
-    
+<div class = 'searching container' id = 'searching'>
+    <form action = '' class = 'searchSpace' id = 'searchSpace' autocomplete = 'off'>
+        <input autocomplete = 'off' type = 'text' placeholder = 'Поиск фильмов' name = 'userSearch' id = 'searchbar'>
+        <input type = 'submit' id = 'getSearch'>
+    </form>
 </div>
 <body>
     <div class = 'bodyContent' id = 'bodyContent'>
