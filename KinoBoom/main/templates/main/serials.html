@@ -84,7 +84,7 @@
         
 </div>
 <div class = 'searching container' id = 'searching'>
-    <form action = '{% url "serialPage" %}' class = 'searchSpace' id = 'searchSpace' autocomplete = 'off'>
+    <form action = '{% url "filmPage" %}' class = 'searchSpace' id = 'searchSpace' autocomplete = 'off'>
         <input autocomplete = 'off' type = 'text' placeholder = 'Поиск фильмов' name = 'userSearch' id = 'searchbar'>
         <input type = 'submit' id = 'getSearch'>
     </form>
@@ -112,13 +112,13 @@
                         </div>
                         <img src = '/media/{{item.path_to_the_image}}' alt = 'preview' class = 'prevImg'>
                         <h2 class = 'filmTitle'>
-                            {{item.serial_title}}
+                            {{item.movie_title}}
                         </h2>
                         <p class = 'filmDate'>
-                            {{item.serial_date_release}}
+                            {{item.movie_date_release}}
                         </p>
                         <p class = 'rating'>
-                            {{item.serial_raiting}}
+                            {{item.movie_raiting}}
                         </p>
                     </div>
                     {% endfor %}
@@ -141,13 +141,13 @@
                         </div>
                         <img src = '/media/{{item.path_to_the_image}}' alt = 'preview' class = 'prevImg'>
                         <h2 class = 'filmTitle'>
-                            {{item.serial_title}}
+                            {{item.movie_title}}
                         </h2>
                         <p class = 'filmDate'>
-                            {{item.serial_date_release}}
+                            {{item.movie_date_release}}
                         </p>
                         <p class = 'rating'>
-                            {{item.serial_raiting}}
+                            {{item.movie_raiting}}
                         </p>
                     </div>
                     {% endfor %}

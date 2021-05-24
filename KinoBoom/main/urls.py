@@ -17,7 +17,6 @@ urlpatterns = [
     path('notfound/', views.notfound, name='notfound'),
     path('cabinet/', views.cabinet, name='cabinet'),
     path('filmPage/', views.search, name='filmPage'),
-    path('serialPage/', views.search_serials , name ='serialPage'),
     path('exit/', authViews.LogoutView.as_view(
         next_page='/'), name='exit'),
 ]

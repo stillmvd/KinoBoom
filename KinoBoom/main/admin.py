@@ -64,18 +64,18 @@ class Model_for_storing_seriesAdmin(admin.ModelAdmin):
     
     """
     list_display = (
-        'serial_title', 
-        'serial_genre', 
-        'serial_raiting', 
-        'serial_date_release', 
-        'serial_age_limit')
+        'movie_title', 
+        'movie_genre', 
+        'movie_raiting', 
+        'movie_date_release', 
+        'movie_age_limit')
 
     list_filter = (
-        'serial_genre', 
-        'serial_raiting', 
-        'serial_date_release', 
-        'serial_age_limit')
+        'movie_genre', 
+        'movie_raiting', 
+        'movie_date_release', 
+        'movie_age_limit')
 
     search_fields = (
-        'serial_title', 
-        'serial_genre')
+        'movie_title', 
+        'movie_genre')

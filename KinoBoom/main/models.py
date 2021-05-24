@@ -121,41 +121,41 @@ class Model_for_storing_movies_from_the_film_page(models.Model):
 class Model_for_storing_series(models.Model):
     """Creates a model for storing serial data
 
-    * serial_title - This field will store the name of the serial
+    * movie_title - This field will store the name of the serial
     
-    * serial_description - This field will store the description of the serial
+    * movie_description - This field will store the description of the serial
 
-    * serial_genre - This field will store the genre of the serial
+    * movie_genre - This field will store the genre of the serial
 
-    * serial_raiting - This field will store the rating of the serial
+    * movie_raiting - This field will store the rating of the serial
 
-    * serial_date_release - This field will store the release date of the serial
+    * movie_date_release - This field will store the release date of the serial
 
-    * serial_age_limit - This field will store the age limit for the serial
+    * movie_age_limit - This field will store the age limit for the serial
 
     * path_to_the_image - This field will store the path to the photo to the serial
     """
-    serial_title = models.CharField(
+    movie_title = models.CharField(
         max_length=30, 
         verbose_name="Название")
     
-    serial_description = models.TextField(
+    movie_description = models.TextField(
         verbose_name="Описание")
 
-    serial_genre = models.ForeignKey(
+    movie_genre = models.ForeignKey(
         'Model_for_storing_genres', 
         on_delete = models.PROTECT, 
         verbose_name="Жанр")
 
-    serial_raiting = models.CharField(
+    movie_raiting = models.CharField(
         max_length=5, 
         verbose_name="Рейтинг")
 
-    serial_date_release = models.CharField(
+    movie_date_release = models.CharField(
         max_length=20, 
         verbose_name="Дата выхода")
 
-    serial_age_limit = models.CharField(
+    movie_age_limit = models.CharField(
         max_length=10, 
         verbose_name="Возрастное ограничение")
 

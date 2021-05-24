@@ -29,38 +29,11 @@ def logout(request):
     if request.method == 'GET':
         logged = False
 
-def search_serials(request):
-    if request.method == 'GET':
-        if request.GET.get('userSearch'):
-            userSearch = request.GET.get('userSearch').capitalize()
-            try:
-                if len(Model_for_storing_series.objects.filter(
-                    serial_title = userSearch)) != 0:
-                    print(1)
-                    serial = Model_for_storing_series.objects.filter(
-                        serial_title = userSearch)[0]
-
-                    context = {
-                        "serial" : serial   
-                    }
-
-                    return render(
-                        request=request, 
-                        template_name='main/serialPage.html', 
-                        context=context)      
-            except ValueError:
-                return render(
-                    request=request, 
-                    template_name='main/notfound.html')
-            except IndexError:
-                return render(
-                    request=request, 
-                    template_name='main/notfound.html')
-
 def search(request):
     if request.method == 'GET':
         if request.GET.get('userSearch'):
             userSearch = request.GET.get('userSearch').capitalize()
+            print(userSearch)
             try:
                 if len(Model_for_storing_movies_from_the_main_page.objects.filter(
                     movie_title = userSearch)) != 0:
@@ -93,6 +66,23 @@ def search(request):
                         template_name='main/filmPage.html', 
                         context=context)
 
+                elif len(Model_for_storing_series.objects.filter(
+                    movie_title = userSearch)) != 0:
+
+                    print(1)
+
+                    film = Model_for_storing_series.objects.filter(
+                        movie_title = userSearch)[0]
+
+                    context = {
+                        "film" : film   
+                    }
+
+                    return render(
+                        request=request, 
+                        template_name='main/filmPage.html', 
+                        context=context)      
+
             except ValueError:
                 return render(
                     request=request, 
@@ -102,6 +92,10 @@ def search(request):
                 return render(
                     request=request, 
                     template_name='main/notfound.html')
+            return render(
+                        request=request, 
+                        template_name='main/notfound.html'
+            )
             
 
 def change_user_data(request):
@@ -348,7 +342,7 @@ def serials(request):
     """
     Displays a website with series
     """
-    search_serials(request)
+    search(request)
     getting_data_from_post_fields_register(request)
     getting_data_from_post_fields_login(request)
     serials = Model_for_storing_series.objects.all()
