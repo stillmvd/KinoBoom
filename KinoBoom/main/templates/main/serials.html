@@ -84,7 +84,7 @@
         
 </div>
 <div class = 'searching container' id = 'searching'>
-    <form action = '' class = 'searchSpace' id = 'searchSpace' autocomplete = 'off'>
+    <form action = '{% url "serialPage" %}' class = 'searchSpace' id = 'searchSpace' autocomplete = 'off'>
         <input autocomplete = 'off' type = 'text' placeholder = 'Поиск фильмов' name = 'userSearch' id = 'searchbar'>
         <input type = 'submit' id = 'getSearch'>
     </form>

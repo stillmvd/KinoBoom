@@ -11,7 +11,6 @@ errors_user = False
 logged = False
 confirm_password = True
 user = ''
-film = []
 
 def is_number(str):
     """
@@ -30,18 +29,79 @@ def logout(request):
     if request.method == 'GET':
         logged = False
 
-def search_result(userSearch):
-    global film
-    film = Model_for_storing_movies_from_the_main_page.objects.filter(movie_title = userSearch)
-    return film
+def search_serials(request):
+    if request.method == 'GET':
+        if request.GET.get('userSearch'):
+            userSearch = request.GET.get('userSearch').capitalize()
+            try:
+                if len(Model_for_storing_series.objects.filter(
+                    serial_title = userSearch)) != 0:
+                    print(1)
+                    serial = Model_for_storing_series.objects.filter(
+                        serial_title = userSearch)[0]
+
+                    context = {
+                        "serial" : serial   
+                    }
+
+                    return render(
+                        request=request, 
+                        template_name='main/serialPage.html', 
+                        context=context)      
+            except ValueError:
+                return render(
+                    request=request, 
+                    template_name='main/notfound.html')
+            except IndexError:
+                return render(
+                    request=request, 
+                    template_name='main/notfound.html')
 
 def search(request):
     if request.method == 'GET':
         if request.GET.get('userSearch'):
-            userSearch = request.GET.get('userSearch')
-            result_film = search_result(userSearch)
-            if result_film != None:
-                return search_result(userSearch)
+            userSearch = request.GET.get('userSearch').capitalize()
+            try:
+                if len(Model_for_storing_movies_from_the_main_page.objects.filter(
+                    movie_title = userSearch)) != 0:
+                    print(1)
+                    film = Model_for_storing_movies_from_the_main_page.objects.filter(
+                        movie_title = userSearch)[0]
+
+                    context = {
+                        "film" : film
+                    }
+
+                    return render(
+                        request=request, 
+                        template_name='main/filmPage.html', 
+                        context=context)
+
+                elif len(Model_for_storing_movies_from_the_film_page.objects.filter(
+                    movie_title = userSearch)) != 0:
+                    print(1)
+
+                    film = Model_for_storing_movies_from_the_film_page.objects.filter(
+                        movie_title = userSearch)[0]
+                        
+                    context = {
+                        "film" : film
+                    }
+
+                    return render(
+                        request=request, 
+                        template_name='main/filmPage.html', 
+                        context=context)
+
+            except ValueError:
+                return render(
+                    request=request, 
+                    template_name='main/notfound.html')
+
+            except IndexError:
+                return render(
+                    request=request, 
+                    template_name='main/notfound.html')
             
 
 def change_user_data(request):
@@ -199,33 +259,11 @@ def splits_movies_into_subclasses(movies_to_break_up):
     return subgroup_of_new_movies, \
            subgroup_of_popular_movies
 
-def index(request):
-    """
-    Displays the site main site
-    """
-    search(request)
-    print(search(request))
-    getting_data_from_post_fields_register(request)
-    getting_data_from_post_fields_login(request)
-    genres = Model_for_storing_genres.objects.all()
-    film = Model_for_storing_movies_from_the_main_page.objects.all()
-    context = {
-        "genre" : genres,
-        "films_new" : splits_movies_into_subclasses(film)[0],
-        "films_popular" : splits_movies_into_subclasses(film)[1],
-        "errors_user" : errors_user,
-        "logged" : logged 
-    }
-
-    return render(
-        request=request, 
-        template_name='main/index.html', 
-        context=context)
-
 def podpiska(request):
     """
     Displays the subscription site
     """
+    
     getting_data_from_post_fields_register(request)
     getting_data_from_post_fields_login(request)
     context = {
@@ -259,11 +297,58 @@ def notfound(request):
         request=request, 
         template_name='main/notfound.html')
 
+def index(request):
+    """
+    Displays the site main site
+    """
+    search(request)
+    getting_data_from_post_fields_register(request)
+    getting_data_from_post_fields_login(request)
+    genres = Model_for_storing_genres.objects.all()
+    film = Model_for_storing_movies_from_the_main_page.objects.all()
+    context = {
+        "genre" : genres,
+        "films_new" : splits_movies_into_subclasses(film)[0],
+        "films_popular" : splits_movies_into_subclasses(film)[1],
+        "errors_user" : errors_user,
+        "logged" : logged 
+    }
+
+    return render(
+        request=request, 
+        template_name='main/index.html', 
+        context=context)
+        
+def films(request):
+    """
+    Displays a website with movies
+    """
+
+    search(request)
+    getting_data_from_post_fields_register(request)
+    getting_data_from_post_fields_login(request)
+    
+    genres = Model_for_storing_genres.objects.all()
+    film= Model_for_storing_movies_from_the_film_page.objects.all()
+
+    context = {
+        "genre" : genres,
+        "films_new" : splits_movies_into_subclasses(film)[0],
+        "films_popular" : splits_movies_into_subclasses(film)[1],
+        "errors_user" : errors_user,
+        "logged" : logged 
+    }
+
+    return render(
+        request=request, 
+        template_name='main/films.html', 
+        context=context)
+
 def serials(request):
     """
     Displays a website with series
     """
-
+    search_serials(request)
     getting_data_from_post_fields_register(request)
     getting_data_from_post_fields_login(request)
     serials = Model_for_storing_series.objects.all()
@@ -282,32 +367,3 @@ def serials(request):
         request=request, 
         template_name='main/serials.html',
         context=context)
-
-def films(request):
-    """
-    Displays a website with movies
-    """
-
-    getting_data_from_post_fields_register(request)
-    getting_data_from_post_fields_login(request)
-    film= Model_for_storing_movies_from_the_film_page.objects.all()
-    genres = Model_for_storing_genres.objects.all()
-
-    context = {
-        "genre" : genres,
-        "films_new" : splits_movies_into_subclasses(film)[0],
-        "films_popular" : splits_movies_into_subclasses(film)[1],
-        "errors_user" : errors_user,
-        "logged" : logged 
-    }
-
-    return render(
-        request=request, 
-        template_name='main/films.html', 
-        context=context)
-
-def filmPage(request):
-    context = {
-        "film" : film,
-    }
-    return render(request=request, template_name='main/filmPage.html', context=context)

@@ -64,19 +64,19 @@
                     </div>
                     <div class = 'values'>
                         <p>
-                            {{film.movie_title}}
+                            {{serial.serial_title}}
                         </p>
                         <p>
-                            {{film.movie_genre}}
+                            {{serial.serial_genre}}
                         </p>
                         <p>
-                            {{film.movie_raiting}}
+                            {{serial.serial_raiting}}
                         </p>
                         <p>
-                            {{film.movie_date_release}}
+                            {{serial.serial_date_release}}
                         </p>
                         <p>
-                            {{film.movie_age_limit}}
+                            {{serial.serial_age_limit}}
                         </p>
                     </div>
                 </div>
@@ -88,11 +88,11 @@
                         
                     </div>
                     <img src = '{% static "img/play.svg" %}' alt = 'play' class = 'play'>
-                    <img src = '/media/{{film.path_to_the_image}}' alt = 'preview' class = 'filmPrev'>
+                    <img src = '/media/{{serial.path_to_the_image}}' alt = 'preview' class = 'filmPrev'>
                 </div>
                 <div class = 'infoRight'>
                     <p>
-                        {{film.movie_description}}
+                        {{serial.serial_description}}
                     </p>
                 </div>
             </div>
