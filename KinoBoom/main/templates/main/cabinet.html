@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang = 'en' id = 'switch'>
+<head>
+    {% load static %}
+    <meta charset = 'UTF-8'>
+    <title>KinoBoom -- Личный кабинет</title>
+    <link rel = 'stylesheet' href = '{% static "css/style.css" %}'>
+    <link rel = 'icon' href = '{% static "favicon.ico" %}' type = 'image/x-icon'>
+    <script type = 'text/javascript' src = '{% static "js/main.js" %}'></script>
+</head>
+<header id = 'header'>
+    <div class = 'innerHeader container'>
+        <div class = 'logoSpace'>
+            <a href = '{% url "index" %}'>
+                <img src = '{% static "img/logo.svg" %}' alt = 'logo' id = 'logo'>
+            </a>
+        </div>
+        <div class = 'navSpace'>
+            <a href = '{% url "films" %}' class = 'getOrange'>
+                Фильмы
+            </a>
+            <a href = '{% url "serials" %}' class = 'getOrange'>
+                Сериалы
+            </a>
+            <a href = '{% url "podpiska" %}' class = 'getOrange'>
+                Подписка
+            </a>
+        </div>
+        <div class = 'avatarSpace'>
+            <a href = '{% url "cabinet" %}' class = 'linkk'>
+                Аккаунт
+            </a>
+            <a href = '{% url "cabinet" %}'>
+                <img id = 'avatar' src = '{% static "img/man.svg" %}' alt = 'user'>
+            </a>
+        </div>
+    </div>
+</header>
+<div class = 'overlay' id = 'overlay'>
+    
+</div>
+<img src = '{% static "img/fullscreen.svg" %}' alt = 'fullscreen' id = 'fullscreen' onclick = 'fullscreen()'>
+<body>
+    <div class = 'bodyContent' id = 'bodyContent'>
+        <div class = 'mainPart'>
+            <div class = 'userCard'>
+                <div id = 'mode'>
+                    
+                </div>
+                <img src = '{% static "img/photo.svg" %}' alt = 'photo' class = 'camera'>
+                <img src = '{% static "img/man.svg" %}' alt = 'avatar' class = 'logAvatar'>
+                <img src = '{% static "img/background.svg" %}' alt = 'background' id = 'background'>
+                <p class = 'userName' id = 'userName'>
+                    {{user.username}}
+                </p>
+                <p class = 'userEmail' id = 'userEmail'>
+                    {{user.email}}
+                </p>
+                <a href = '{% url "exit" %}' class = 'logoutLink'>
+                    <form action = '' method = 'GET'>
+                        <div class = 'rect'>
+                        
+                        </div>
+                        {% csrf_token %}
+                        <input type = 'submit' value = 'Выйти' name = 'leave' class = 'logout' id = 'logout' disabled>
+                    </form>
+                </a>
+            </div>
+            <form class = 'changeForm' action = '' alt = 'change' id = 'changeLogin' method = 'post'>
+                {% csrf_token %}
+                <input type = 'text' placeholder = 'Новый логин' name = 'firstName'>
+                <input type = 'submit' value = 'Сохранить изменения' class = 'confirmButton'>
+            </form>
+            <form class = 'changeForm' action = '' alt = 'change' id = 'changeMail' method = 'post'>
+                {% csrf_token %}
+                <input type = 'email' placeholder = 'Новая почта' name = 'changeMail'> 
+                <input type = 'submit' value = 'Сохранить изменения' class = 'confirmButton'>
+            </form>
+            <form class = 'changeForm' action = '' alt = 'change' id = 'changePassword' method = 'post'>
+                {% csrf_token %}
+                <input type = 'password' placeholder = 'Новый пароль' name = 'changePassword'>
+                <input type = 'submit' value = 'Сохранить изменения' class = 'confirmButton'>
+            </form>
+            <div class = 'changings'>
+                <p class = 'getOrange' onclick = 'fixing()'>
+                    Изменить логин
+                </p>        
+                <p class = 'getOrange' onclick = 'fixing2()'>
+                    Изменить почту
+                </p>
+                <p class = 'getOrange' onclick = 'fixing3()'>
+                    Изменить пароль
+                </p>
+            </div>
+        </div> 
+    </div>
+</body>
+<footer>
+    <div class = 'innerFooter container'>
+        <div class = 'about' id = 'about'>
+            <p>KinoBoom - это сервис для просмотра любимых фильмов и сериалов в компании, а также одному, если с компанией не хочется делиться попкорном. Ужасы проверят ваши нервы, а боевики захватят своим экшеном. <br><br> Приятного просмотра! <br><br> Для зарегистрированных пользователей открываются дополнительные возможности.</p>
+        </div>
+        <p class = 'getOrange' onclick = 'aboutOpen()'>
+            Что такое KinoBoom
+        </p>
+        <a class = 'footerLink getOrange' href = 'https://vk.me/moneysend/asslocker'>
+            Поддержать проект
+        </a>
+        <a class = 'footerLink getOrange' href = 'https://vk.com/write403091284'>
+            По всем вопросам
+        </a>
+    </div>
+</footer>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang = 'en' id = 'switch'>
+<head>
+    {% load static %}
+    <meta charset = 'UTF-8'>
+    <title>KinoBoom -- Фильмы</title>
+    <link rel = 'stylesheet' href = '{% static "css/style.css" %}'>
+    <link rel = 'icon' href = '{% static "favicon.ico" %}' type = 'image/x-icon'>
+    <script type = 'text/javascript' src = '{% static "js/main.js" %}'></script>
+</head>
+<header id = 'header'>
+    <div class = 'innerHeader container'>
+        <div class = 'logoSpace'>
+            <a href = '{% url "index" %}'>
+                <img src = '{% static "img/logo.svg" %}' alt = 'logo' id = 'logo'>
+            </a>
+        </div>
+        <div class = 'navSpace'>
+            <a href = '{% url "films" %}' class = 'getOrange'>
+                Фильмы
+            </a>
+            <a href = '{% url "serials" %}' class = 'getOrange'>
+                Сериалы
+            </a>
+            <a href = '{% url "podpiska" %}' class = 'getOrange'>
+                Подписка
+            </a>
+            <img src = '{% static "img/searchWhite.svg" %}' alt = 'search' class = 'searchLoop' id = 'searchLoop'>
+            <p onclick = 'checkSearch()' id = 'searchWord'>
+                Поиск
+            </p>
+        </div>
+        {% if logged == False %}
+        <div class = 'avatarSpace'>
+            <p onclick = 'modalOpen()'>
+                Войти
+            </p>
+            <img onclick = 'modalOpen()' id = 'avatar' data-modal = 'modalOpen' src = '{% static "img/user.svg" %}' alt = 'user'>
+        </div>
+    </div>
+    <img src = '{% static "img/fullscreen.svg" %}' alt = 'fullscreen' id = 'fullscreen' onclick = 'fullscreen()'>
+    {% else %}
+    <div class = 'avatarSpace'>
+        <a href = '{% url "cabinet" %}' class = 'linkk'>
+            Аккаунт
+        </a>
+        <a href = '{% url "cabinet" %}'>
+            <img id = 'avatar' src = '{% static "img/man.svg" %}' alt = 'user'>
+        </a>
+    </div>
+    {% endif %}
+    <div class = 'modalWindLogin' id = 'modalWindLogin' data-modal = 'modalOpen'>
+        <img src = '{% static "img/cross.svg" %}' alt = 'close' onclick = 'modalClose()' id = 'cross'>
+        <p class = 'regTitle'>
+            Войти
+        </p>
+        <form action = '' class = 'logForm' method = 'post'>
+            {% csrf_token %}
+            <input type = 'text' placeholder = 'Логин' name = 'userLog'>
+            <input type = 'password' placeholder = 'Пароль' name = 'userPass'>
+            <input type = 'submit' value = 'войти' name="login">
+        </form>
+        <p class = 'questionLog' onclick = 'modalChangeReg()' id = 'question'>
+            Зарегистрироваться
+        </p>
+    </div>
+    <div class = 'modalWindReg' id = 'modalWindReg' data-modal = 'modalOpen'>
+        <img src = '{% static "img/cross.svg" %}' alt = 'close' onclick = 'modalClose()' id = 'cross'>
+        <p class = 'regTitle'>
+            Регистрация
+        </p>
+        <form action = '' class = 'logForm' method = 'post'>
+            {% csrf_token %}
+            <input type = 'text' placeholder = 'Логин' name = 'userLog'>
+            <input type = 'text' placeholder = 'Почта' name = 'userMail'>
+            <input type = 'password' placeholder = 'Пароль' name = 'userPass'>
+            <input type = 'submit' value = 'зарегистрироваться' name="reg">
+        </form>
+        <p class = 'questionReg' onclick = 'modalChangeLog()' id = 'question'>
+            Войти
+        </p>
+    </div>
+</header>
+<div class = 'overlay' id = 'overlay'>
+        
+</div>
+<div class = 'searching container' id = 'searching'>
+    <form action = '' class = 'searchSpace' id = 'searchSpace' autocomplete = 'off'>
+        <input autocomplete = 'off' type = 'text' placeholder = 'Поиск фильмов' name = 'userSearch' id = 'searchbar'>
+        <input type = 'submit' id = 'getSearch'>
+    </form>
+</div>
+<img src = '{% static "img/fullscreen.svg" %}' alt = 'fullscreen' id = 'fullscreen' onclick = 'fullscreen()'>
+<body>
+    <div class = 'bodyContent' id = 'bodyContent'>
+        <div class = 'leftPart'>
+            <div class = 'categories'>
+                {% for item in genre %}
+                <a href = '' class = 'getOrange'>{{item.genre_name}}</a>
+                {% endfor %}
+            </div>
+        </div>
+        <div class = 'rightPart'>
+            <div class = 'news'>
+                <h3 class = 'partTitle'>
+                    Новинки
+                </h3>
+                <div class = 'films'>
+                    {% for item in films_new %}
+                    <div class = 'preview'>
+                        <div class = 'mode'>
+
+                        </div>
+                        <img src = '/media/{{item.path_to_the_image}}' alt = 'preview' class = 'prevImg'>
+                        <h2 class = 'filmTitle'>
+                            {{item.movie_title}}
+                        </h2>
+                        <p class = 'filmDate'>
+                            {{item.movie_date_release}}
+                        </p>
+                        <p class = 'rating'>
+                            {{item.movie_raiting}}
+                        </p>
+                    </div>
+                    {% endfor %}
+                    <div class = 'showMore'>
+                        <p class = 'getOrange'>
+                            Показать больше
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class = 'popular'>
+                <h3 class = 'partTitle'>
+                    Популярное
+                </h3>
+                <div class = 'films'>
+                    {% for item in films_popular %}
+                    <div class = 'preview'>
+                        <div class = 'mode'>
+                            
+                        </div>
+                        <img src = '/media/{{item.path_to_the_image}}' alt = 'preview' class = 'prevImg'>
+                        <h2 class = 'filmTitle'>
+                            {{item.movie_title}}
+                        </h2>
+                        <p class = 'filmDate'>
+                            {{item.movie_date_release}}
+                        </p>
+                        <p class = 'rating'>
+                            {{item.movie_raiting}}
+                        </p>
+                    </div>
+                    {% endfor %}
+                    <div class = 'showMore'>
+                        <p class = 'getOrange'>
+                            Показать больше
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<footer>
+    <div class = 'innerFooter container'>
+        <div class = 'about' id = 'about'>
+            <p>
+                KinoBoom - это сервис для просмотра любимых фильмов и сериалов в компании, а также одному, если с компанией не хочется делиться попкорном. Ужасы проверят ваши нервы, а боевики захватят своим экшеном. <br><br> Приятного просмотра! <br><br> Для зарегистрированных пользователей открываются дополнительные возможности.
+            </p>
+        </div>
+        <p class = 'getOrange' onclick = 'aboutOpen()'>
+            Что такое KinoBoom
+        </p>
+        <a class = 'footerLink getOrange' href = 'https://vk.me/moneysend/asslocker'>
+            Поддержать проект
+        </a>
+        <a class = 'footerLink getOrange' href = 'https://vk.com/write403091284'>
+            По всем вопросам
+        </a>
+    </div>
+</footer>
+</html>
