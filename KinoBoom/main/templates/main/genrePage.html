@@ -96,7 +96,7 @@
     <div class = 'bodyContent' id = 'bodyContent'>
         <div class = 'leftPart'>
             <div class = 'categories'>
-                {% for item in genre %}
+                {% for item in genres %}
                 <a href = '{% url "genrePage" item.id %}' class = 'getOrange'>{{item.genre_name}}</a>
                 {% endfor %}
             </div>
@@ -104,10 +104,10 @@
         <div class = 'rightPart'>
             <div class = 'news'>
                 <h3 class = 'partTitle'>
-                    Лучшее в 2020
+                    {{genres1.genre_name}}
                 </h3>
                 <div class = 'films'>
-                    {% for item in films_new %}
+                    {% for item in films %}
                     <a href = '{% url "filmPage" %}{{item.movie_title}}/{{item.id}}' class = 'filmLink'>
                     <div class = 'preview'>
                         <div class = 'mode'>
@@ -126,42 +126,6 @@
                     </div>
                     </a>
                     {% endfor %}
-                    <div class = 'showMore'>
-                        <p class = 'getOrange'>
-                            Показать больше
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class = 'popular'>
-                <h3 class = 'partTitle'>
-                    Вам понравится
-                </h3>
-                <div class = 'films'>
-                    {% for item in films_popular %}
-                    <a href = '{% url "filmPage" %}{{item.movie_title}}/{{item.id}}' class = 'filmLink'>
-                    <div class = 'preview'>
-                        <div class = 'mode'>
-                            
-                        </div>
-                        <img src = '/media/{{item.path_to_the_image}}' alt = 'preview' class = 'prevImg'>
-                        <h2 class = 'filmTitle'>
-                            {{item.movie_title}}
-                        </h2>
-                        <p class = 'filmDate'>
-                            {{item.movie_date_release}}
-                        </p>
-                        <p class = 'rating'>
-                            {{item.movie_raiting}}
-                        </p>
-                    </div>
-                </a>
-                    {% endfor %}
-                    <div class = 'showMore'>
-                        <p class = 'getOrange'>
-                            Показать больше
-                        </p>
-                    </div>
                 </div>
             </div>
         </div>

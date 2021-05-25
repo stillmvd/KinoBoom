@@ -167,7 +167,7 @@ class Model_for_storing_series(models.Model):
         """
         When accessing the class, returns the name of the serial
         """
-        return self.serial_title
+        return self.movie_title
 
     class Meta:
         """

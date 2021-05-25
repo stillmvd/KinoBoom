@@ -29,6 +29,98 @@ def logout(request):
     if request.method == 'GET':
         logged = False
 
+def genre(request, genre_id):
+
+    if (Model_for_storing_genres.objects.filter(id=genre_id)):
+
+        genres1 = Model_for_storing_genres.objects.filter(id=genre_id)
+        genres = Model_for_storing_genres.objects.all()
+
+        
+        films = []
+        films_ok = []
+
+        films.append(Model_for_storing_movies_from_the_main_page.objects.filter(movie_genre = genres1[0].id))
+        films.append(Model_for_storing_movies_from_the_film_page.objects.filter(movie_genre = genres1[0].id))
+        films.append(Model_for_storing_series.objects.filter(movie_genre = genres1[0].id))
+
+        print(films)
+
+        for i in range(0,len(films)):
+            if len(films[i]) != 0:
+                films_ok.append(films[i])
+        try:
+            films1 = films_ok[0]
+        except IndexError:
+            return render(
+                    request=request, 
+                    template_name='main/notfound.html')
+
+        print(films1)
+        context = {
+            "genres1" : genres1[0],
+            "genres" : genres,
+            "films" : films1
+        }
+        
+        return render(
+            request=request, 
+            template_name='main/genrePage.html', 
+            context=context)
+
+
+def film(request, film_id, movie_title):
+    if (Model_for_storing_movies_from_the_main_page.objects.filter(
+        id = film_id)) and \
+        (Model_for_storing_movies_from_the_main_page.objects.filter(
+        movie_title = movie_title)):
+
+        film = Model_for_storing_movies_from_the_main_page.objects.filter(
+            movie_title = movie_title)[0]
+
+        context = {
+            "film" : film
+        }
+
+        return render(
+            request=request, 
+            template_name='main/filmPage.html', 
+            context=context)
+
+    elif (Model_for_storing_movies_from_the_film_page.objects.filter(
+        id = film_id)) and \
+        (Model_for_storing_movies_from_the_film_page.objects.filter(
+        movie_title = movie_title)):
+
+        film = Model_for_storing_movies_from_the_film_page.objects.filter(
+            movie_title = movie_title)[0]
+            
+        context = {
+            "film" : film
+        }
+
+        return render(
+            request=request, 
+            template_name='main/filmPage.html', 
+            context=context)
+
+    elif (Model_for_storing_series.objects.filter(
+        id = film_id)) and \
+        (Model_for_storing_series.objects.filter(
+        movie_title = movie_title)):
+
+        film = Model_for_storing_series.objects.filter(
+            movie_title = movie_title)[0]
+
+        context = {
+            "film" : film   
+        }
+
+        return render(
+            request=request, 
+            template_name='main/filmPage.html', 
+            context=context)    
+
 def search(request):
     if request.method == 'GET':
         if request.GET.get('userSearch'):

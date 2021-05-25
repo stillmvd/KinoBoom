@@ -95,7 +95,7 @@
         <div class = 'leftPart'>
             <div class = 'categories'>
                 {% for item in genre %}
-                <a href = '' class = 'getOrange'>{{item.genre_name}}</a>
+                <a href = '{% url "genrePage" item.id %}' class = 'getOrange'>{{item.genre_name}}</a>
                 {% endfor %}
             </div>
         </div>
@@ -106,6 +106,7 @@
                 </h3>
                 <div class = 'films'>
                     {% for item in serials_Netflix %}
+                    <a href = '{% url "filmPage" %}{{item.movie_title}}/{{item.id}}' class = 'filmLink'>
                     <div class = 'preview'>
                         <div class = 'mode'>
 
@@ -121,6 +122,7 @@
                             {{item.movie_raiting}}
                         </p>
                     </div>
+                    </a>
                     {% endfor %}
                     <div class = 'showMore'>
                         <p class = 'getOrange'>
@@ -135,21 +137,23 @@
                 </h3>
                 <div class = 'films'>
                     {% for item in serials_recommend %}
-                    <div class = 'preview'>
-                        <div class = 'mode'>
-                            
+                    <a href = '{% url "filmPage" %}{{item.movie_title}}/{{item.id}}' class = 'filmLink'>
+                        <div class = 'preview' >
+                            <div class = 'mode'>
+                                
+                            </div>
+                            <img src = '/media/{{item.path_to_the_image}}' alt = 'preview' class = 'prevImg'>
+                            <h2 class = 'filmTitle'>
+                                {{item.movie_title}}
+                            </h2>
+                            <p class = 'filmDate'>
+                                {{item.movie_date_release}}
+                            </p>
+                            <p class = 'rating'>
+                                {{item.movie_raiting}}
+                            </p>
                         </div>
-                        <img src = '/media/{{item.path_to_the_image}}' alt = 'preview' class = 'prevImg'>
-                        <h2 class = 'filmTitle'>
-                            {{item.movie_title}}
-                        </h2>
-                        <p class = 'filmDate'>
-                            {{item.movie_date_release}}
-                        </p>
-                        <p class = 'rating'>
-                            {{item.movie_raiting}}
-                        </p>
-                    </div>
+                    </a>
                     {% endfor %}
                     <div class = 'showMore'>
                         <p class = 'getOrange'>
